@@ -5,7 +5,7 @@
         public static List<IElf> FormatData(IEnumerable<string> rawData)
         {
             List<IElf> elves = new();
-            IElf elf = null;
+            Elf elf = null;
 
             foreach (var line in rawData)
             {
