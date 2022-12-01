@@ -15,4 +15,3 @@ Console.WriteLine("Part two");
 var totalCalories = elves.OrderByDescending(e => e.GetTotalCalories()).Take(3).Sum(e=>e.GetTotalCalories());
 Console.WriteLine($"Total calories carried by 3 elves: {totalCalories}");
 Console.ReadLine();
-
