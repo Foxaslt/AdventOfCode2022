@@ -2,11 +2,21 @@
 
 using Day7;
 
-string[] rawData = File.ReadAllLines("RawData.txt");
+ElfDir root = new ElfDir(null, null);
 
-ElfDir root = new ElfDir();
-CdCommand cmd = new CdCommand();
+Builder builder = new Builder(root);
 
-int i = 1;
-if (rawData[i].StartsWith('$'))
-    cmd.Execute(rawData, i, root);
+string line;
+using StreamReader reader = new StreamReader("RawData.txt");
+while ((line = reader.ReadLine()) != null)
+    builder.Build(line);
+
+Calculator calculator = new Calculator();
+var size = calculator.GetSum(root);
+
+Console.WriteLine($"Size: {size}");
+Console.ReadKey();
+
+var minSize = calculator.Check(root);
+Console.WriteLine($"Min size: {minSize}");
+Console.ReadKey();

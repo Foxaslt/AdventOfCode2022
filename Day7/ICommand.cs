@@ -2,6 +2,6 @@
 {
     internal interface ICommand
     {
-        void Execute(string[] rawData, int index, ElfDir dir);
+        IElfItem Execute(IElfItem item, string line);
     }
 }
